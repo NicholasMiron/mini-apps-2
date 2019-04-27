@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import EventList from './EventList';
+import styles from './styles/styles.css';
 
 class App extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class App extends Component {
   }
 
   getEvents(page) {
-    axios.get(`/events?description_like=${this.state.searchValue}&_page=${page}&_limit=10`)
+    axios.get(`/events?q=${this.state.searchValue}&_page=${page}&_limit=10`)
     .then(results => {
       if (results.data.length === 0) this.setState({page: this.state.page - 1});
       else this.setState({eventList: results.data, page: page});
@@ -45,14 +46,26 @@ class App extends Component {
     })
   }
 
+  handleEnter(e) {
+    e.preventDefault()
+    if (e.key === 'Enter') {
+      this.handleSearch(e, true);
+    }
+  }
+
   render() {
     return (
-      <div>
-        <input type='text' placeholder='Search Me...' onChange={e => this.handleType(e)}></input>
-        <button type='button' onClick={e => this.handleSearch(e, true)}>Dive Into The Darkness</button>
+      <div className={styles.content}>
+        <h1 className={styles.header}>Historical Events Finder</h1>
+        <div className={styles.input}>
+          <input className={styles.search} type='text' placeholder='Search Me...' onChange={e => this.handleType(e)} onKeyUp={e => this.handleEnter(e)}></input>
+          <button className={styles.button} type='button' onClick={e => this.handleSearch(e, true)}>Dive Into The Darkness</button>
+        </div>
         <EventList events={this.state.eventList}/>
-        <button type='button' onClick={e => this.handlePage(e, -1)}>Back</button>
-        <button type='button' onClick={e => this.handlePage(e, 1)}>Next</button>
+        <div className={styles.pages}>
+          <button type='button' onClick={e => this.handlePage(e, -1)}>Back</button>
+          <button type='button' onClick={e => this.handlePage(e, 1)}>Next</button>
+        </div>
       </div>
     )
   }

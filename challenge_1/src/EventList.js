@@ -1,8 +1,9 @@
 import React from 'react';
 import Event from './Event';
+import styles from './styles/styles.css';
 
 const EventList = ({events}) => (
-  <ul>
+  <ul className={styles.events}>
     {events.map(event => (
       <Event event={event} />
     ))}
