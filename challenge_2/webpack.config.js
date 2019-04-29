@@ -11,6 +11,7 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
         loader: 'babel-loader',
       },
       {
@@ -37,5 +38,6 @@ module.exports = {
       template: "./client/index.html",
       filename: "./index.html"
     })
-  ]
+  ],
+  devtool: 'cheap-eval-source-map'
 }

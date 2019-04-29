@@ -1,2 +1,4 @@
 node_modules
 *.DS_Store
+challenge_1/dist/main.js
+dist
