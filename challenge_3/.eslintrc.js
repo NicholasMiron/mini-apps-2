@@ -3,6 +3,10 @@ module.exports = {
   "globals": {
     "document": true,
   },
+  "env": {
+    "amd": true,
+    "node": true,
+  },
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 6,

@@ -1,0 +1,37 @@
+:global(body) {
+  margin: 0;
+  padding: 0;
+  background-color: #53bda6;
+}
+
+.pinRow {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pin {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: black;
+  margin: 5px;
+}
+
+.scoreboard {
+  display:flex;
+  justify-content: center;
+}
+
+.frame {
+  border: 1px solid black;
+  width: 75px;
+  height: 125px;
+  display: grid;
+}
+
+.frameRoll {
+  grid-row: 1;
+  grid-column: -1;
+}

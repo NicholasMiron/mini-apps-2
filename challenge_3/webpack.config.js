@@ -14,6 +14,9 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
+        options: {
+          presets: ['@babel/react', '@babel/env']
+        }
       },
       {
         test: /\.css$/,
@@ -24,7 +27,7 @@ module.exports = {
           {
             loader: 'css-loader',
             query: {
-              modules: true,
+              modules: false,
               localIdentName: '[name]__[local]___[hash:base64:5]',
             },
           },
