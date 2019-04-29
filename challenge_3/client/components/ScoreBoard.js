@@ -12,7 +12,7 @@ class ScoreBoard extends Component {
   makeFrames() {
     let frames = [];
     for (let i = 1; i <= 10; i++) {
-      frames.push(<Frame frameNumber={i} />);
+      frames.push(<Frame frameNumber={i} frameScore={10} frameRoll={[2,8]}/>);
     }
     return frames;
   }

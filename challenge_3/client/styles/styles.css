@@ -31,7 +31,21 @@
   display: grid;
 }
 
+.topOfFrame {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+}
+
 .frameRoll {
-  grid-row: 1;
-  grid-column: -1;
+  border: 1px solid black;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+}
+
+.frameScore {
+  font-size: 25px;
+  text-align: center;
+  vertical-align: center;
 }
